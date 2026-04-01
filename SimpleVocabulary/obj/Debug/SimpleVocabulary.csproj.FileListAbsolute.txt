@@ -1,0 +1,14 @@
+D:\Instruments\VisualStudioProjects\SimpleVocabulary\SimpleVocabulary\bin\Debug\SimpleVocabulary.exe.config
+D:\Instruments\VisualStudioProjects\SimpleVocabulary\SimpleVocabulary\bin\Debug\SimpleVocabulary.exe
+D:\Instruments\VisualStudioProjects\SimpleVocabulary\SimpleVocabulary\bin\Debug\SimpleVocabulary.pdb
+D:\Instruments\VisualStudioProjects\SimpleVocabulary\SimpleVocabulary\obj\Debug\SimpleVocabulary.csproj.AssemblyReference.cache
+D:\Instruments\VisualStudioProjects\SimpleVocabulary\SimpleVocabulary\obj\Debug\SimpleVocabulary.About.resources
+D:\Instruments\VisualStudioProjects\SimpleVocabulary\SimpleVocabulary\obj\Debug\SimpleVocabulary.Form1.resources
+D:\Instruments\VisualStudioProjects\SimpleVocabulary\SimpleVocabulary\obj\Debug\SimpleVocabulary.OpenProgressbar.resources
+D:\Instruments\VisualStudioProjects\SimpleVocabulary\SimpleVocabulary\obj\Debug\SimpleVocabulary.Properties.Resources.resources
+D:\Instruments\VisualStudioProjects\SimpleVocabulary\SimpleVocabulary\obj\Debug\SimpleVocabulary.Settings.resources
+D:\Instruments\VisualStudioProjects\SimpleVocabulary\SimpleVocabulary\obj\Debug\SimpleVocabulary.csproj.GenerateResource.cache
+D:\Instruments\VisualStudioProjects\SimpleVocabulary\SimpleVocabulary\obj\Debug\SimpleVocabulary.csproj.CoreCompileInputs.cache
+D:\Instruments\VisualStudioProjects\SimpleVocabulary\SimpleVocabulary\obj\Debug\SimpleVocabulary.exe
+D:\Instruments\VisualStudioProjects\SimpleVocabulary\SimpleVocabulary\obj\Debug\SimpleVocabulary.pdb
+D:\Instruments\VisualStudioProjects\SimpleVocabulary\SimpleVocabulary\obj\Debug\SimpleVocabulary.AddWord.resources
