@@ -63,10 +63,6 @@ namespace SimpleVocabulary
             {
                 throw;
             }
-            catch (Exception) 
-            {
-                throw;
-            }
         }
 
         // Метод виведення словника.
@@ -194,6 +190,8 @@ namespace SimpleVocabulary
             {
                 string[,] result;
 
+                bool wordDeleted = false;
+
                 int upperbound = data.GetUpperBound(0) + 1;
 
                 List<string[]> temp = new System.Collections.Generic.List<string[]>();
@@ -206,6 +204,15 @@ namespace SimpleVocabulary
                     {
                         temp.Add(new string[] { data[i, 0], data[i, 1] });
                     }
+                    else
+                    {
+                        wordDeleted = true;
+                    }
+                }
+
+                if (!wordDeleted)
+                {
+                    throw new WordNotFoundException($"Слова '{word}' не знайдено у словнику.");
                 }
 
                 result = new string[temp.Count, 2];

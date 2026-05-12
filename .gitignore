@@ -1,0 +1,17 @@
+.vs/
+[Bb]in/
+[Oo]bj/
+*.user
+*.userosscache
+*.sln.docstates
+
+*.exe
+*.dll
+*.pdb
+*.msi
+*.nupkg
+
+packages/
+
+*.log
+*.tmp

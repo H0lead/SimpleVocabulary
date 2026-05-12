@@ -15,7 +15,9 @@ namespace SimpleVocabulary
 
         private Form1 mainForm;
 
-        Vocabulary vocabulary;
+        private Vocabulary vocabulary;
+
+        private bool wordAdded = false;
 
         public AddWord(Form1 form, Vocabulary value)
         {
@@ -49,6 +51,7 @@ namespace SimpleVocabulary
                     vocabulary.addWord(wordtextBox.Text, valueTextBox.Text);
                     exportLabel.Text = "Слово успішно додано!";
                     vocabulary.isSaved = false;
+                    wordAdded = true;
                     mainForm.saveToolStripMenuItem.Enabled = true;
                     mainForm.findTextBox.AutoCompleteCustomSource.Add(wordtextBox.Text);
                 }
@@ -65,7 +68,13 @@ namespace SimpleVocabulary
 
         private void AddWord_FormClosing(object sender, FormClosingEventArgs e)
         {
-            mainForm.updateExportList();
+            if (vocabulary != null)
+            {
+                if (wordAdded)
+                {
+                    mainForm.updateExportList();
+                }
+            }
         }
     }
 }

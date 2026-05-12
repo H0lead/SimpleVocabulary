@@ -12,9 +12,10 @@ namespace SimpleVocabulary
 {
     public partial class OpenProgressbar : Form
     {
-        public OpenProgressbar()
+        public OpenProgressbar(string progressBarName)
         {
             InitializeComponent();
+            this.Text = progressBarName;
         }
     }
 }

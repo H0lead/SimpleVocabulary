@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SimpleVocabulary
 {
-    public abstract class FileManager
+    public class FileManager
     {
         internal bool isSaved = false;
 

@@ -25,19 +25,13 @@ namespace SimpleVocabulary
         public void updateExportList()
         {
             exportListBox.Items.Clear();
-            OpenProgressbar openProgressbar = new OpenProgressbar();
+            OpenProgressbar openProgressbar = new OpenProgressbar("Зачекайте, виводимо словник...");
             ProgressBar progressBar = openProgressbar.openProgressBarUI;
             progressBar.Maximum = vocabulary.VocabularyLength;
 
             openProgressbar.Show();
             vocabulary.print(exportListBox, progressBar);
             openProgressbar.Close();
-        }
-
-        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Settings settings = new Settings();
-            settings.Show();
         }
 
         private void aboutPToolStripMenuItem_Click(object sender, EventArgs e)
@@ -78,7 +72,7 @@ namespace SimpleVocabulary
 
                 vocabulary.isSaved = true;
                 saveAsToolStripMenuItem.Enabled = true;
-                OpenProgressbar openProgressbar = new OpenProgressbar();
+                OpenProgressbar openProgressbar = new OpenProgressbar("Зачекайте, читаємо словник...");
                 ProgressBar progressBar = openProgressbar.openProgressBarUI;
                 progressBar.Maximum = vocabulary.VocabularyLength * 2;
                 
@@ -134,7 +128,7 @@ namespace SimpleVocabulary
                 }
                 catch (FileNotFoundException ex)
                 {
-                    MessageBox.Show(ex.Message, "Помилка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Помилка! Файл не знайдено!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -147,7 +141,7 @@ namespace SimpleVocabulary
                 {
                     exportListBox.Items.Clear();
                     findTextBox.Text = string.Empty;
-                    OpenProgressbar openProgressbar = new OpenProgressbar();
+                    OpenProgressbar openProgressbar = new OpenProgressbar("Зачекайте, виводимо словник...");
                     ProgressBar progressBar = openProgressbar.openProgressBarUI;
                     progressBar.Maximum = vocabulary.VocabularyLength;
                     openProgressbar.Show();
@@ -182,12 +176,34 @@ namespace SimpleVocabulary
 
                 vocabulary.printArray(exportListBox, result);
             }
+            else
+            {
+                MessageBox.Show("Спочатку відкрийте словник!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
             AddWord addWord = new AddWord(this, vocabulary);
             addWord.Show();
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            DeleteWord deleteWord = new DeleteWord(this, vocabulary);
+            deleteWord.Show();
+        }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddWord addWord = new AddWord(this, vocabulary);
+            addWord.Show();
+        }
+
+        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteWord deleteWord = new DeleteWord(this, vocabulary);
+            deleteWord.Show();
         }
     }
 }
