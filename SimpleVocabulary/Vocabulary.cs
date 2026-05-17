@@ -112,7 +112,7 @@ namespace SimpleVocabulary
             }
             else
             {
-                throw new NullReferenceException("Значення data, word або value є порожнім!");
+                throw new ArgumentNullException("Значення data, word або value є порожнім!");
             }
         }
 
@@ -228,7 +228,7 @@ namespace SimpleVocabulary
             }
             else
             {
-                throw new NullReferenceException("Значення Data є порожнім!");
+                throw new ArgumentNullException("Значення Data є порожнім!");
             }
         }
 
@@ -295,15 +295,6 @@ namespace SimpleVocabulary
             else
             {
                 throw new NullReferenceException("Список порожній.");
-            }
-        }
-
-        // Метод для виведення одновимірного масиву.
-        public void printOneDimArray(string[] array)
-        {
-            for (int i = 0; i < array.Length; i++)
-            {
-                Console.WriteLine($"{i}) {array[i]}");
             }
         }
     }

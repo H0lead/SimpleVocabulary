@@ -12,6 +12,7 @@ namespace SimpleVocabulary
 {
     public partial class OpenProgressbar : Form
     {
+        // Встановлення імені форми.
         public OpenProgressbar(string progressBarName)
         {
             InitializeComponent();

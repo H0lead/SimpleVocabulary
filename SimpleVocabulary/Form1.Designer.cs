@@ -67,7 +67,6 @@
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1067, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
@@ -167,9 +166,9 @@
             this.findGroupBox.Controls.Add(this.findTextBox);
             this.findGroupBox.Controls.Add(this.label1);
             this.findGroupBox.Location = new System.Drawing.Point(17, 34);
-            this.findGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.findGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.findGroupBox.Name = "findGroupBox";
-            this.findGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.findGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.findGroupBox.Size = new System.Drawing.Size(1033, 86);
             this.findGroupBox.TabIndex = 1;
             this.findGroupBox.TabStop = false;
@@ -179,7 +178,7 @@
             // 
             this.cancelSearchButton.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelSearchButton.Location = new System.Drawing.Point(989, 16);
-            this.cancelSearchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancelSearchButton.Margin = new System.Windows.Forms.Padding(4);
             this.cancelSearchButton.Name = "cancelSearchButton";
             this.cancelSearchButton.Size = new System.Drawing.Size(36, 25);
             this.cancelSearchButton.TabIndex = 3;
@@ -190,7 +189,7 @@
             // findButton
             // 
             this.findButton.Location = new System.Drawing.Point(12, 48);
-            this.findButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.findButton.Margin = new System.Windows.Forms.Padding(4);
             this.findButton.Name = "findButton";
             this.findButton.Size = new System.Drawing.Size(1013, 28);
             this.findButton.TabIndex = 2;
@@ -203,7 +202,7 @@
             this.findTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.findTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.findTextBox.Location = new System.Drawing.Point(125, 16);
-            this.findTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.findTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.findTextBox.Name = "findTextBox";
             this.findTextBox.Size = new System.Drawing.Size(855, 22);
             this.findTextBox.TabIndex = 1;
@@ -223,9 +222,9 @@
             this.addDeleteGroupBox.Controls.Add(this.deleteButton);
             this.addDeleteGroupBox.Controls.Add(this.addButton);
             this.addDeleteGroupBox.Location = new System.Drawing.Point(17, 128);
-            this.addDeleteGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addDeleteGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.addDeleteGroupBox.Name = "addDeleteGroupBox";
-            this.addDeleteGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addDeleteGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.addDeleteGroupBox.Size = new System.Drawing.Size(1033, 78);
             this.addDeleteGroupBox.TabIndex = 2;
             this.addDeleteGroupBox.TabStop = false;
@@ -234,7 +233,7 @@
             // deleteButton
             // 
             this.deleteButton.Location = new System.Drawing.Point(532, 25);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(4);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(493, 46);
             this.deleteButton.TabIndex = 1;
@@ -245,7 +244,7 @@
             // addButton
             // 
             this.addButton.Location = new System.Drawing.Point(9, 25);
-            this.addButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(493, 46);
             this.addButton.TabIndex = 0;
@@ -257,9 +256,9 @@
             // 
             this.showGroupBox.Controls.Add(this.exportListBox);
             this.showGroupBox.Location = new System.Drawing.Point(17, 213);
-            this.showGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.showGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.showGroupBox.Name = "showGroupBox";
-            this.showGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.showGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.showGroupBox.Size = new System.Drawing.Size(1033, 326);
             this.showGroupBox.TabIndex = 3;
             this.showGroupBox.TabStop = false;
@@ -273,7 +272,7 @@
             this.exportListBox.HorizontalScrollbar = true;
             this.exportListBox.ItemHeight = 19;
             this.exportListBox.Location = new System.Drawing.Point(4, 19);
-            this.exportListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.exportListBox.Margin = new System.Windows.Forms.Padding(4);
             this.exportListBox.Name = "exportListBox";
             this.exportListBox.Size = new System.Drawing.Size(1025, 303);
             this.exportListBox.TabIndex = 0;
@@ -299,7 +298,7 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1082, 591);
             this.Name = "Form1";
             this.Text = "SimpleVocabulary";

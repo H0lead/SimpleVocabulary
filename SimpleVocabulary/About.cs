@@ -17,6 +17,7 @@ namespace SimpleVocabulary
             InitializeComponent();
         }
 
+        // Кнопка ОК. Закриває форму.
         private void exitAboutButton_Click(object sender, EventArgs e)
         {
             this.Close();

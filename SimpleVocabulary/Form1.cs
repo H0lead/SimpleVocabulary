@@ -15,6 +15,7 @@ namespace SimpleVocabulary
     {
         Vocabulary vocabulary;
 
+        // Вимкнення кнопок збереження при запускі програми.
         public Form1()
         {
             InitializeComponent();
@@ -22,6 +23,7 @@ namespace SimpleVocabulary
             saveAsToolStripMenuItem.Enabled = false;
         }
 
+        // Метод оновлює вивід у exportListBox, присутній Progressbar.
         public void updateExportList()
         {
             exportListBox.Items.Clear();
@@ -34,17 +36,20 @@ namespace SimpleVocabulary
             openProgressbar.Close();
         }
 
+        // Виклик вікна "About"
         private void aboutPToolStripMenuItem_Click(object sender, EventArgs e)
         {
             About about = new About();
             about.Show();
         }
 
+        // Вихід з додатку.
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Кнопка відкриття файлу. Намагається прочитати файл. Якщо вдалось то записує у словник.
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (openVocabularyFileDialog.ShowDialog() == DialogResult.OK)
@@ -83,6 +88,7 @@ namespace SimpleVocabulary
             }
         }
 
+        // Збереження файлу.
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (vocabulary != null)
@@ -99,6 +105,7 @@ namespace SimpleVocabulary
             }
         }
 
+        // Обробка події закривання форми. Якщо користувая не зберіг зміни у файл, його про це попереджають та пропонують зберегти.
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (vocabulary != null)
@@ -113,57 +120,52 @@ namespace SimpleVocabulary
             }
         }
 
+        // Зберегти як. Зберігає в окремий файл.
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (vocabulary != null)
             {
-                try
+                if (saveVocabularyFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    if (saveVocabularyFileDialog.ShowDialog() == DialogResult.OK)
-                    {
+                    try
+                    { 
                         vocabulary.saveFile(saveVocabularyFileDialog.FileName, vocabulary.Data);
                         vocabulary.Path = saveVocabularyFileDialog.FileName;
                         saveToolStripMenuItem.Enabled = false;
                     }
+                    catch (FileNotFoundException ex)
+                    {
+                        MessageBox.Show(ex.Message, "Помилка! Файл не знайдено!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                catch (FileNotFoundException ex)
-                {
-                    MessageBox.Show(ex.Message, "Помилка! Файл не знайдено!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                
             }
         }
 
+        // Скасування "режиму пошуку".
         private void cancelSearchButton_Click(object sender, EventArgs e)
         {
-            if (vocabulary != null)
+            if (vocabulary != null && vocabulary.IsInSearch)
             {
-                if (vocabulary.IsInSearch)
-                {
-                    exportListBox.Items.Clear();
-                    findTextBox.Text = string.Empty;
-                    OpenProgressbar openProgressbar = new OpenProgressbar("Зачекайте, виводимо словник...");
-                    ProgressBar progressBar = openProgressbar.openProgressBarUI;
-                    progressBar.Maximum = vocabulary.VocabularyLength;
-                    openProgressbar.Show();
+                findTextBox.Text = String.Empty;
 
-                    vocabulary.print(exportListBox, progressBar);
-
-                    openProgressbar.Close();
-                }   
+                updateExportList();
             }
         }
 
+        // Кнопка пошуку. Шукає слова за заданим полем та виводить їх у ListBox.
         private void findButton_Click(object sender, EventArgs e)
         {
-            if (vocabulary != null)
+            if (findTextBox.Text == "")
             {
-                if (findTextBox.Text == "")
-                {
-                    return;
-                }
+                MessageBox.Show("Поле для пошуку пусте!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-                string[,] result;
+            string[,] result;
 
+            try
+            {
                 switch (findTextBox.Text.Length)
                 {
                     case 1:
@@ -176,30 +178,35 @@ namespace SimpleVocabulary
 
                 vocabulary.printArray(exportListBox, result);
             }
-            else
+            catch (NullReferenceException) 
             {
                 MessageBox.Show("Спочатку відкрийте словник!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
+        // Кнопка додавання слова, викликає форму
         private void addButton_Click(object sender, EventArgs e)
         {
             AddWord addWord = new AddWord(this, vocabulary);
             addWord.Show();
         }
 
+        // Кнопка видалення слова, викликає форму
         private void deleteButton_Click(object sender, EventArgs e)
         {
             DeleteWord deleteWord = new DeleteWord(this, vocabulary);
             deleteWord.Show();
         }
 
+        // Кнопка додавання слова, викликає форму
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddWord addWord = new AddWord(this, vocabulary);
             addWord.Show();
         }
 
+        // Кнопка видалення слова, викликає форму
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DeleteWord deleteWord = new DeleteWord(this, vocabulary);

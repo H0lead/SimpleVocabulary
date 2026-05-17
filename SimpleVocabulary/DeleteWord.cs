@@ -18,6 +18,7 @@ namespace SimpleVocabulary
 
         private bool wordDeleted = false;
 
+        // Передаємо головну форму для того, щоб потім встановити стан кнопок збереження.
         public DeleteWord(Form1 mainForm, Vocabulary vocabulary)
         {
             InitializeComponent();
@@ -25,39 +26,38 @@ namespace SimpleVocabulary
             this.vocabulary = vocabulary;
         }
 
+        // Обробка кнопки видалення.
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            if (vocabulary != null)
+            if (deleteWordTextBox.Text != "")
             {
-                if (deleteWordTextBox.Text != "")
+                try
                 {
-                    try
-                    {
-                        vocabulary.deleteWord(deleteWordTextBox.Text);
-                        exportLabel.Text = $"Слово (слова) '{deleteWordTextBox.Text}' успішно видалено. ";
-                        vocabulary.isSaved = false;
-                        wordDeleted = true;
-                        mainForm.saveToolStripMenuItem.Enabled = true;
-                        mainForm.findTextBox.AutoCompleteCustomSource.Remove(deleteWordTextBox.Text);
-                        mainForm.findTextBox.AutoCompleteCustomSource.Remove(deleteWordTextBox.Text.ToLower());
+                    vocabulary.deleteWord(deleteWordTextBox.Text);
+                    exportLabel.Text = $"Слово (слова) '{deleteWordTextBox.Text}' успішно видалено. ";
+                    vocabulary.isSaved = false;
+                    wordDeleted = true;
+                    mainForm.saveToolStripMenuItem.Enabled = true;
+                    mainForm.findTextBox.AutoCompleteCustomSource.Remove(deleteWordTextBox.Text);
+                    mainForm.findTextBox.AutoCompleteCustomSource.Remove(deleteWordTextBox.Text.ToLower());
 
-                    }
-                    catch (WordNotFoundException ex)
-                    {
-                        exportLabel.Text = ex.Message;
-                    }
                 }
-                else
+                catch (WordNotFoundException ex)
                 {
-                    exportLabel.Text = "Одне з полів порожнє!";
+                    exportLabel.Text = ex.Message;
+                }
+                catch (NullReferenceException)
+                {
+                    MessageBox.Show("Спочатку відкрийте словник!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Спочатку відкрийте словник!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                exportLabel.Text = "Поле порожнє!";
             }
         }
 
+        // Коли форма закривається на головний формі оновлюється ListBox з новими даними.
         private void DeleteWord_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (vocabulary != null)

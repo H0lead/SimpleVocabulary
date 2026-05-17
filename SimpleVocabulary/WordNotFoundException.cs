@@ -8,6 +8,7 @@ namespace SimpleVocabulary
 {
     internal class WordNotFoundException : Exception
     {
+        // Звичайни кастомний exception.
         public WordNotFoundException(string message) : base(message) { }
     }
 }
