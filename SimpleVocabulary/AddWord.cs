@@ -48,22 +48,29 @@ namespace SimpleVocabulary
         // Обробка кнопки додовання терміну.
         private void addWordButton_Click(object sender, EventArgs e)
         {
-            try
+            if (wordtextBox.Text != "" && valueTextBox.Text != "")
             {
-                vocabulary.addWord(wordtextBox.Text, valueTextBox.Text);
-                exportLabel.Text = "Слово успішно додано!";
-                vocabulary.isSaved = false;
-                wordAdded = true;
-                mainForm.saveToolStripMenuItem.Enabled = true;
-                mainForm.findTextBox.AutoCompleteCustomSource.Add(wordtextBox.Text);
+                try
+                {
+                    vocabulary.addWord(wordtextBox.Text, valueTextBox.Text);
+                    exportLabel.Text = "Слово успішно додано!";
+                    vocabulary.isSaved = false;
+                    wordAdded = true;
+                    mainForm.saveToolStripMenuItem.Enabled = true;
+                    mainForm.findTextBox.AutoCompleteCustomSource.Add(wordtextBox.Text);
+                }
+                catch (ArgumentNullException ex)
+                {
+                    MessageBox.Show(ex.Message, "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (NullReferenceException)
+                {
+                    MessageBox.Show("Спочатку відкрите словник!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (ArgumentNullException ex)
+            else
             {
-                MessageBox.Show(ex.Message, "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (NullReferenceException)
-            {
-                MessageBox.Show("Спочатку відкрите словник!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                exportLabel.Text = "Одне з значень пусте!";
             }
         }
 
